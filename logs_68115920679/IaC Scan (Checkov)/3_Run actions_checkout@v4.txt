@@ -1,0 +1,90 @@
+﻿2026-05-08T16:43:02.6554333Z ##[group]Run actions/checkout@v4
+2026-05-08T16:43:02.6554950Z with:
+2026-05-08T16:43:02.6555215Z   repository: maliqpotter/devsecops-demo-test
+2026-05-08T16:43:02.6555793Z   token: ***
+2026-05-08T16:43:02.6555978Z   ssh-strict: true
+2026-05-08T16:43:02.6556165Z   ssh-user: git
+2026-05-08T16:43:02.6556363Z   persist-credentials: true
+2026-05-08T16:43:02.6556580Z   clean: true
+2026-05-08T16:43:02.6556766Z   sparse-checkout-cone-mode: true
+2026-05-08T16:43:02.6557004Z   fetch-depth: 1
+2026-05-08T16:43:02.6557193Z   fetch-tags: false
+2026-05-08T16:43:02.6557426Z   show-progress: true
+2026-05-08T16:43:02.6557619Z   lfs: false
+2026-05-08T16:43:02.6557777Z   submodules: false
+2026-05-08T16:43:02.6557965Z   set-safe-directory: true
+2026-05-08T16:43:02.6558365Z env:
+2026-05-08T16:43:02.6558552Z   PYTHON_VERSION: 3.11
+2026-05-08T16:43:02.6558750Z ##[endgroup]
+2026-05-08T16:43:02.7834400Z Syncing repository: maliqpotter/devsecops-demo-test
+2026-05-08T16:43:02.7837044Z ##[group]Getting Git version info
+2026-05-08T16:43:02.7837845Z Working directory is '/home/runner/work/devsecops-demo-test/devsecops-demo-test'
+2026-05-08T16:43:02.7838706Z [command]/usr/bin/git version
+2026-05-08T16:43:02.7910718Z git version 2.53.0
+2026-05-08T16:43:02.7940799Z ##[endgroup]
+2026-05-08T16:43:02.7959327Z Temporarily overriding HOME='/home/runner/work/_temp/e3a1a591-89bb-45ff-a433-d7d6e3a4cdc6' before making global git config changes
+2026-05-08T16:43:02.7961425Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-08T16:43:02.7968312Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devsecops-demo-test/devsecops-demo-test
+2026-05-08T16:43:02.8010717Z Deleting the contents of '/home/runner/work/devsecops-demo-test/devsecops-demo-test'
+2026-05-08T16:43:02.8015413Z ##[group]Initializing the repository
+2026-05-08T16:43:02.8029171Z [command]/usr/bin/git init /home/runner/work/devsecops-demo-test/devsecops-demo-test
+2026-05-08T16:43:02.8145625Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-08T16:43:02.8146654Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-08T16:43:02.8147517Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-08T16:43:02.8148119Z hint: call:
+2026-05-08T16:43:02.8148394Z hint:
+2026-05-08T16:43:02.8148875Z hint: 	git config --global init.defaultBranch <name>
+2026-05-08T16:43:02.8149258Z hint:
+2026-05-08T16:43:02.8149975Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-08T16:43:02.8150516Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-08T16:43:02.8150873Z hint:
+2026-05-08T16:43:02.8151057Z hint: 	git branch -m <name>
+2026-05-08T16:43:02.8151268Z hint:
+2026-05-08T16:43:02.8151564Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-08T16:43:02.8152161Z Initialized empty Git repository in /home/runner/work/devsecops-demo-test/devsecops-demo-test/.git/
+2026-05-08T16:43:02.8160911Z [command]/usr/bin/git remote add origin https://github.com/maliqpotter/devsecops-demo-test
+2026-05-08T16:43:02.8197161Z ##[endgroup]
+2026-05-08T16:43:02.8198165Z ##[group]Disabling automatic garbage collection
+2026-05-08T16:43:02.8202692Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-08T16:43:02.8241199Z ##[endgroup]
+2026-05-08T16:43:02.8242691Z ##[group]Setting up auth
+2026-05-08T16:43:02.8252924Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-08T16:43:02.8293618Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-08T16:43:02.8638136Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-08T16:43:02.8678883Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-08T16:43:02.8941318Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-08T16:43:02.8995227Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-08T16:43:02.9275201Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-08T16:43:02.9320645Z ##[endgroup]
+2026-05-08T16:43:02.9321931Z ##[group]Fetching the repository
+2026-05-08T16:43:02.9331912Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7b192d47ee7461bbd3c3e3a8550fa07f71483086:refs/remotes/pull/1/merge
+2026-05-08T16:43:03.1910998Z From https://github.com/maliqpotter/devsecops-demo-test
+2026-05-08T16:43:03.1930469Z  * [new ref]         7b192d47ee7461bbd3c3e3a8550fa07f71483086 -> pull/1/merge
+2026-05-08T16:43:03.2068882Z ##[endgroup]
+2026-05-08T16:43:03.2070069Z ##[group]Determining the checkout info
+2026-05-08T16:43:03.2070944Z ##[endgroup]
+2026-05-08T16:43:03.2071556Z [command]/usr/bin/git sparse-checkout disable
+2026-05-08T16:43:03.2073810Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-08T16:43:03.2075822Z ##[group]Checking out the ref
+2026-05-08T16:43:03.2076581Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1/merge
+2026-05-08T16:43:03.2123954Z Note: switching to 'refs/remotes/pull/1/merge'.
+2026-05-08T16:43:03.2124663Z 
+2026-05-08T16:43:03.2125180Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-05-08T16:43:03.2126185Z changes and commit them, and you can discard any commits you make in this
+2026-05-08T16:43:03.2127178Z state without impacting any branches by switching back to a branch.
+2026-05-08T16:43:03.2127766Z 
+2026-05-08T16:43:03.2128172Z If you want to create a new branch to retain commits you create, you may
+2026-05-08T16:43:03.2129109Z do so (now or later) by using -c with the switch command. Example:
+2026-05-08T16:43:03.2129988Z 
+2026-05-08T16:43:03.2130289Z   git switch -c <new-branch-name>
+2026-05-08T16:43:03.2130721Z 
+2026-05-08T16:43:03.2131028Z Or undo this operation with:
+2026-05-08T16:43:03.2131461Z 
+2026-05-08T16:43:03.2131829Z   git switch -
+2026-05-08T16:43:03.2132255Z 
+2026-05-08T16:43:03.2132778Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-05-08T16:43:03.2133483Z 
+2026-05-08T16:43:03.2134218Z HEAD is now at 7b192d4 Merge ff1de2811c3883d11a5af235549ad6bfb879e0e3 into 260f903b639c96929603be24facdea94b1bf07ca
+2026-05-08T16:43:03.2136873Z ##[endgroup]
+2026-05-08T16:43:03.2179767Z [command]/usr/bin/git log -1 --format=%H
+2026-05-08T16:43:03.2205940Z 7b192d47ee7461bbd3c3e3a8550fa07f71483086

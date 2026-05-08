@@ -1,0 +1,33 @@
+﻿2026-05-08T16:42:45.2316909Z Current runner version: '2.334.0'
+2026-05-08T16:42:45.2378879Z ##[group]Runner Image Provisioner
+2026-05-08T16:42:45.2380902Z Hosted Compute Agent
+2026-05-08T16:42:45.2381718Z Version: 20260213.493
+2026-05-08T16:42:45.2382809Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-08T16:42:45.2383981Z Build Date: 2026-02-13T00:28:41Z
+2026-05-08T16:42:45.2385158Z Worker ID: {fbb9ca99-af4a-4d5d-9c8e-5a726ff246c1}
+2026-05-08T16:42:45.2386538Z Azure Region: northcentralus
+2026-05-08T16:42:45.2387624Z ##[endgroup]
+2026-05-08T16:42:45.2390714Z ##[group]Operating System
+2026-05-08T16:42:45.2391681Z Ubuntu
+2026-05-08T16:42:45.2392437Z 24.04.4
+2026-05-08T16:42:45.2393137Z LTS
+2026-05-08T16:42:45.2394055Z ##[endgroup]
+2026-05-08T16:42:45.2394835Z ##[group]Runner Image
+2026-05-08T16:42:45.2395788Z Image: ubuntu-24.04
+2026-05-08T16:42:45.2396692Z Version: 20260413.86.1
+2026-05-08T16:42:45.2398535Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-08T16:42:45.2422148Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-05-08T16:42:45.2424003Z ##[endgroup]
+2026-05-08T16:42:45.2426050Z ##[group]GITHUB_TOKEN Permissions
+2026-05-08T16:42:45.2429933Z Contents: read
+2026-05-08T16:42:45.2430786Z Metadata: read
+2026-05-08T16:42:45.2431711Z SecurityEvents: write
+2026-05-08T16:42:45.2432606Z ##[endgroup]
+2026-05-08T16:42:45.2435869Z Secret source: Actions
+2026-05-08T16:42:45.2437458Z Prepare workflow directory
+2026-05-08T16:42:45.3225599Z Prepare all required actions
+2026-05-08T16:42:45.3283649Z Getting action download info
+2026-05-08T16:42:45.8127480Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-08T16:42:45.9543072Z Download action repository 'bridgecrewio/checkov-action@master' (SHA:4048c972aae68d0b983a48bb3479aab2d877b898)
+2026-05-08T16:42:46.0969300Z Download action repository 'github/codeql-action@v3' (SHA:7fd177fa680c9881b53cdab4d346d32574c9f7f4)
+2026-05-08T16:42:47.2449963Z Complete job name: IaC Scan (Checkov)

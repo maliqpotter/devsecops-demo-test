@@ -1,0 +1,32 @@
+﻿2026-05-08T16:42:45.7739080Z Current runner version: '2.334.0'
+2026-05-08T16:42:45.7782424Z ##[group]Runner Image Provisioner
+2026-05-08T16:42:45.7783925Z Hosted Compute Agent
+2026-05-08T16:42:45.7784810Z Version: 20260213.493
+2026-05-08T16:42:45.7786063Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-05-08T16:42:45.7787286Z Build Date: 2026-02-13T00:28:41Z
+2026-05-08T16:42:45.7788693Z Worker ID: {361ca255-d5b3-4cdd-bbed-c40c1ef21011}
+2026-05-08T16:42:45.7790121Z Azure Region: eastus2
+2026-05-08T16:42:45.7791030Z ##[endgroup]
+2026-05-08T16:42:45.7793657Z ##[group]Operating System
+2026-05-08T16:42:45.7794730Z Ubuntu
+2026-05-08T16:42:45.7795587Z 24.04.4
+2026-05-08T16:42:45.7796376Z LTS
+2026-05-08T16:42:45.7797766Z ##[endgroup]
+2026-05-08T16:42:45.7798769Z ##[group]Runner Image
+2026-05-08T16:42:45.7799785Z Image: ubuntu-24.04
+2026-05-08T16:42:45.7800772Z Version: 20260413.86.1
+2026-05-08T16:42:45.7802537Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260413.86/images/ubuntu/Ubuntu2404-Readme.md
+2026-05-08T16:42:45.7805732Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260413.86
+2026-05-08T16:42:45.7807759Z ##[endgroup]
+2026-05-08T16:42:45.7809893Z ##[group]GITHUB_TOKEN Permissions
+2026-05-08T16:42:45.7813259Z Contents: read
+2026-05-08T16:42:45.7814191Z Metadata: read
+2026-05-08T16:42:45.7815262Z Packages: read
+2026-05-08T16:42:45.7816135Z ##[endgroup]
+2026-05-08T16:42:45.7819638Z Secret source: Actions
+2026-05-08T16:42:45.7821305Z Prepare workflow directory
+2026-05-08T16:42:45.8428150Z Prepare all required actions
+2026-05-08T16:42:45.8485576Z Getting action download info
+2026-05-08T16:42:46.1463904Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-08T16:42:46.3074846Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-05-08T16:42:46.4936870Z Complete job name: SCA (pip-audit)

@@ -1,0 +1,41 @@
+﻿2026-05-08T16:42:47.4168718Z ##[group]Run pip install bandit
+2026-05-08T16:42:47.4169313Z [36;1mpip install bandit[0m
+2026-05-08T16:42:47.4206151Z shell: /usr/bin/bash -e {0}
+2026-05-08T16:42:47.4206625Z env:
+2026-05-08T16:42:47.4207006Z   PYTHON_VERSION: 3.11
+2026-05-08T16:42:47.4207494Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:47.4208502Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-05-08T16:42:47.4209309Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:47.4209891Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:47.4210496Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:47.4211079Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-05-08T16:42:47.4211579Z ##[endgroup]
+2026-05-08T16:42:48.5998613Z Collecting bandit
+2026-05-08T16:42:48.6530129Z   Downloading bandit-1.9.4-py3-none-any.whl.metadata (7.1 kB)
+2026-05-08T16:42:48.7083059Z Collecting PyYAML>=5.3.1 (from bandit)
+2026-05-08T16:42:48.7119905Z   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-05-08T16:42:48.7304294Z Collecting stevedore>=1.20.0 (from bandit)
+2026-05-08T16:42:48.7338775Z   Downloading stevedore-5.7.0-py3-none-any.whl.metadata (2.4 kB)
+2026-05-08T16:42:48.7791896Z Collecting rich (from bandit)
+2026-05-08T16:42:48.7827091Z   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+2026-05-08T16:42:48.7988069Z Collecting markdown-it-py>=2.2.0 (from rich->bandit)
+2026-05-08T16:42:48.8020337Z   Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+2026-05-08T16:42:48.8304493Z Collecting pygments<3.0.0,>=2.13.0 (from rich->bandit)
+2026-05-08T16:42:48.8314758Z   Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+2026-05-08T16:42:48.8373746Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->bandit)
+2026-05-08T16:42:48.8405493Z   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2026-05-08T16:42:48.8476289Z Downloading bandit-1.9.4-py3-none-any.whl (134 kB)
+2026-05-08T16:42:48.8658774Z Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+2026-05-08T16:42:48.8782792Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 78.9 MB/s  0:00:00
+2026-05-08T16:42:48.8812554Z Downloading stevedore-5.7.0-py3-none-any.whl (54 kB)
+2026-05-08T16:42:48.8868820Z Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+2026-05-08T16:42:48.8929471Z Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+2026-05-08T16:42:48.9013381Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 162.6 MB/s  0:00:00
+2026-05-08T16:42:48.9048652Z Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+2026-05-08T16:42:48.9102060Z Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2026-05-08T16:42:48.9431386Z Installing collected packages: stevedore, PyYAML, pygments, mdurl, markdown-it-py, rich, bandit
+2026-05-08T16:42:50.2021788Z 
+2026-05-08T16:42:50.2045440Z Successfully installed PyYAML-6.0.3 bandit-1.9.4 markdown-it-py-4.2.0 mdurl-0.1.2 pygments-2.20.0 rich-15.0.0 stevedore-5.7.0
+2026-05-08T16:42:50.2920973Z 
+2026-05-08T16:42:50.2929630Z [notice] A new release of pip is available: 26.0.1 -> 26.1.1
+2026-05-08T16:42:50.2943605Z [notice] To update, run: pip install --upgrade pip

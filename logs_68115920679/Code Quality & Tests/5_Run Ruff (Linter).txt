@@ -1,0 +1,13 @@
+﻿2026-05-08T16:42:29.1257437Z ##[group]Run ruff check .
+2026-05-08T16:42:29.1257734Z [36;1mruff check .[0m
+2026-05-08T16:42:29.1280019Z shell: /usr/bin/bash -e {0}
+2026-05-08T16:42:29.1280256Z env:
+2026-05-08T16:42:29.1280431Z   PYTHON_VERSION: 3.11
+2026-05-08T16:42:29.1280708Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:29.1281131Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-05-08T16:42:29.1281544Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:29.1281902Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:29.1282263Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:29.1282631Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-05-08T16:42:29.1282939Z ##[endgroup]
+2026-05-08T16:42:29.1389460Z All checks passed!

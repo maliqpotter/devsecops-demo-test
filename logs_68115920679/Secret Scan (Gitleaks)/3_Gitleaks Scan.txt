@@ -1,0 +1,73 @@
+﻿2026-05-08T16:42:49.6568260Z ##[group]Run gitleaks/gitleaks-action@v2
+2026-05-08T16:42:49.6568619Z env:
+2026-05-08T16:42:49.6568842Z   PYTHON_VERSION: 3.11
+2026-05-08T16:42:49.6569402Z   GITHUB_TOKEN: ***
+2026-05-08T16:42:49.6569681Z ##[endgroup]
+2026-05-08T16:42:50.2131301Z [maliqpotter] is an individual user. No license key is required.
+2026-05-08T16:42:50.2133070Z gitleaks version: 8.24.3
+2026-05-08T16:42:50.2136495Z Version to install: 8.24.3 (target directory: /tmp/gitleaks-8.24.3)
+2026-05-08T16:42:50.4381479Z Cache hit for: gitleaks-cache-8.24.3-linux-x64
+2026-05-08T16:42:51.4477727Z Received 5717491 of 5717491 (100.0%), 6.9 MBs/sec
+2026-05-08T16:42:51.4479901Z Cache Size: ~5 MB (5717491 B)
+2026-05-08T16:42:51.4513098Z [command]/usr/bin/tar -xf /home/runner/work/_temp/f54079ed-dbd6-4800-993b-80d40264e36d/cache.tzst -P -C /home/runner/work/devsecops-demo-test/devsecops-demo-test --use-compress-program unzstd
+2026-05-08T16:42:51.4885833Z Cache restored successfully
+2026-05-08T16:42:51.4894003Z Gitleaks restored from cache
+2026-05-08T16:42:51.4913177Z event type: pull_request
+2026-05-08T16:42:51.8683342Z /home/runner/work/_actions/gitleaks/gitleaks-action/v2/dist/index.js:51503
+2026-05-08T16:42:51.8684264Z       const error = new requestError.RequestError(toErrorMessage(data), status, {
+2026-05-08T16:42:51.8684877Z                     ^
+2026-05-08T16:42:51.8685070Z 
+2026-05-08T16:42:51.8685315Z RequestError [HttpError]: Resource not accessible by integration
+2026-05-08T16:42:51.8686004Z     at /home/runner/work/_actions/gitleaks/gitleaks-action/v2/dist/index.js:51503:21
+2026-05-08T16:42:51.8686815Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-05-08T16:42:51.8687788Z     at async Object.ScanPullRequest (/home/runner/work/_actions/gitleaks/gitleaks-action/v2/dist/index.js:129568:17)
+2026-05-08T16:42:51.8688848Z     at async start (/home/runner/work/_actions/gitleaks/gitleaks-action/v2/dist/index.js:140770:16) {
+2026-05-08T16:42:51.8689575Z   status: 403,
+2026-05-08T16:42:51.8689910Z   response: {
+2026-05-08T16:42:51.8690499Z     url: 'https://api.github.com/repos/maliqpotter/devsecops-demo-test/pulls/1/commits',
+2026-05-08T16:42:51.8695212Z     status: 403,
+2026-05-08T16:42:51.8695569Z     headers: {
+2026-05-08T16:42:51.8695887Z       'access-control-allow-origin': '*',
+2026-05-08T16:42:51.8697849Z       'access-control-expose-headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset',
+2026-05-08T16:42:51.8699921Z       connection: 'close',
+2026-05-08T16:42:51.8700249Z       'content-encoding': 'gzip',
+2026-05-08T16:42:51.8700644Z       'content-security-policy': "default-src 'none'",
+2026-05-08T16:42:51.8701325Z       'content-type': 'application/json; charset=utf-8',
+2026-05-08T16:42:51.8701807Z       date: 'Fri, 08 May 2026 16:42:51 GMT',
+2026-05-08T16:42:51.8703088Z       'referrer-policy': 'origin-when-cross-origin, strict-origin-when-cross-origin',
+2026-05-08T16:42:51.8703735Z       server: 'github.com',
+2026-05-08T16:42:51.8704281Z       'strict-transport-security': 'max-age=31536000; includeSubdomains; preload',
+2026-05-08T16:42:51.8704908Z       'transfer-encoding': 'chunked',
+2026-05-08T16:42:51.8705403Z       vary: 'Accept-Encoding, Accept, X-Requested-With',
+2026-05-08T16:42:51.8705989Z       'x-accepted-github-permissions': 'pull_requests=read',
+2026-05-08T16:42:51.8706533Z       'x-content-type-options': 'nosniff',
+2026-05-08T16:42:51.8706974Z       'x-frame-options': 'deny',
+2026-05-08T16:42:51.8707415Z       'x-github-api-version-selected': '2022-11-28',
+2026-05-08T16:42:51.8707947Z       'x-github-media-type': 'github.v3; format=json',
+2026-05-08T16:42:51.8708539Z       'x-github-request-id': 'E041:1264F5:4A94B2:11CC5D9:69FE128B',
+2026-05-08T16:42:51.8709077Z       'x-ratelimit-limit': '5000',
+2026-05-08T16:42:51.8709489Z       'x-ratelimit-remaining': '4998',
+2026-05-08T16:42:51.8710208Z       'x-ratelimit-reset': '1778261173',
+2026-05-08T16:42:51.8710635Z       'x-ratelimit-resource': 'core',
+2026-05-08T16:42:51.8711041Z       'x-ratelimit-used': '2',
+2026-05-08T16:42:51.8711422Z       'x-xss-protection': '0'
+2026-05-08T16:42:51.8711772Z     },
+2026-05-08T16:42:51.8712450Z     data: {
+2026-05-08T16:42:51.8712819Z       message: 'Resource not accessible by integration',
+2026-05-08T16:42:51.8713668Z       documentation_url: 'https://docs.github.com/rest/pulls/pulls#list-commits-on-a-pull-request',
+2026-05-08T16:42:51.8714429Z       status: '403'
+2026-05-08T16:42:51.8714717Z     }
+2026-05-08T16:42:51.8714951Z   },
+2026-05-08T16:42:51.8715180Z   request: {
+2026-05-08T16:42:51.8715441Z     method: 'GET',
+2026-05-08T16:42:51.8715983Z     url: 'https://api.github.com/repos/maliqpotter/devsecops-demo-test/pulls/1/commits',
+2026-05-08T16:42:51.8716640Z     headers: {
+2026-05-08T16:42:51.8716975Z       accept: 'application/vnd.github.v3+json',
+2026-05-08T16:42:51.8717705Z       'user-agent': 'octokit-rest.js/18.12.0 octokit-core.js/3.6.0 Node.js/20.20.2 (linux; x64)',
+2026-05-08T16:42:51.8718458Z       authorization: 'token [REDACTED]'
+2026-05-08T16:42:51.8718844Z     },
+2026-05-08T16:42:51.8719185Z     request: { hook: [Function: bound bound register] }
+2026-05-08T16:42:51.8719630Z   }
+2026-05-08T16:42:51.8719867Z }
+2026-05-08T16:42:51.8720013Z 
+2026-05-08T16:42:51.8720128Z Node.js v20.20.2

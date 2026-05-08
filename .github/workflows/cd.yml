@@ -9,13 +9,16 @@ env:
   PYTHON_VERSION: "3.11"
   IMAGE_NAME: "todo-python"
 
+# Izin global untuk semua JOB di workflow ini
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
 jobs:
   build_and_scan:
     name: Build & Security Scan
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write # Diperlukan untuk upload SARIF Trivy
     steps:
       - uses: actions/checkout@v4
       

@@ -1,0 +1,13 @@
+﻿2026-05-08T16:42:53.4844537Z ##[group]Run pip-audit -r requirements.txt --strict --format json > pip-audit.json
+2026-05-08T16:42:53.4845195Z [36;1mpip-audit -r requirements.txt --strict --format json > pip-audit.json[0m
+2026-05-08T16:42:53.4868212Z shell: /usr/bin/bash -e {0}
+2026-05-08T16:42:53.4868449Z env:
+2026-05-08T16:42:53.4868806Z   PYTHON_VERSION: 3.11
+2026-05-08T16:42:53.4869082Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:53.4869505Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-05-08T16:42:53.4869912Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:53.4870270Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:53.4870619Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-05-08T16:42:53.4871009Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-05-08T16:42:53.4871315Z ##[endgroup]
+2026-05-08T16:43:03.8852409Z No known vulnerabilities found
