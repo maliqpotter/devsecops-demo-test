@@ -1,8 +1,0 @@
-2026-05-08T16:42:34.5900000Z Evaluating secret_scan_gitleaks.if
-2026-05-08T16:42:34.5900000Z Evaluating: success()
-2026-05-08T16:42:34.5900000Z Result: true
-2026-05-08T16:42:34.5940000Z Requested labels: ubuntu-latest
-2026-05-08T16:42:34.5940000Z Job defined at: maliqpotter/devsecops-demo-test/.github/workflows/ci.yml@refs/pull/1/merge
-2026-05-08T16:42:34.5940000Z Waiting for a runner to pick up this job...
-2026-05-08T16:42:34.8350000Z Job is about to start running on the hosted runner: GitHub Actions 1000000566
-2026-05-08T16:42:34.8350000Z Job is waiting for a hosted runner to come online.
