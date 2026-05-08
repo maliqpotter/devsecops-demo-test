@@ -24,9 +24,7 @@ RUN python -m pip install --no-cache-dir --upgrade \
 COPY app ./app
 COPY .env.example ./.env
 RUN chown -R appuser:appgroup /app
-
-# Switch back to root for demo
-USER root
+USER appuser
 
 
 # Expose & run

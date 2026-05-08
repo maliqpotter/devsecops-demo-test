@@ -11,9 +11,6 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="TODO App (FastAPI)")
 
-# FAIL: Hardcoded Secret for Gitleaks demo
-SECRET_KEY = "AKIAIMNO7890EXAMPLE" 
-
 # CORS
 allow_origins = [o for o in os.getenv("ALLOW_ORIGINS", "").split(",") if o]
 if allow_origins:
@@ -36,13 +33,6 @@ async def add_security_headers(request, call_next):
 @app.get("/", tags=["health"])
 def health():
     return {"status": "ok"}
-
-# FAIL: Bandit demo (Command Injection vulnerability)
-@app.get("/debug/ping", tags=["debug"])
-def ping(host: str):
-    # DANGEROUS: shell=True with user input
-    result = subprocess.check_output(f"ping -c 1 {host}", shell=True)
-    return {"output": result.decode()}
 
 @app.post("/tasks", response_model=schemas.TaskOut, status_code=201, tags=["tasks"])
 def create_task(payload: schemas.TaskCreate, db: Session = Depends(get_db)):
