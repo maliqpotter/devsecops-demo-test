@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.ruff_cache/
+.pytest_cache/
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# SQLite
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# Reports
+*-report.json
+*.sarif
+coverage.xml
+.coverage
+htmlcov/
+pip-audit.json
+gitleaks.json
+sbom.json
+
+# Docker
+.docker/

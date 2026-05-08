@@ -1,0 +1,59 @@
+name: CD - Build & Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.11"
+  IMAGE_NAME: "todo-python"
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  build_and_scan:
+    name: Build & Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build local image (No Push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true # Load into local docker daemon
+          tags: ${{ env.IMAGE_NAME }}:latest
+
+      - name: Run Trivy Image Scan (Local)
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          image-ref: ${{ env.IMAGE_NAME }}:latest
+          format: 'table' # Mengubah ke format table agar rapi di console log
+          severity: 'CRITICAL,HIGH'
+
+      - name: Generate SBOM
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          image-ref: ${{ env.IMAGE_NAME }}:latest
+          format: 'cyclonedx'
+          output: 'sbom.json'
+
+      - name: Run App for DAST
+        run: |
+          docker run -d -p 8000:8000 --name todo-app ${{ env.IMAGE_NAME }}:latest
+          # Wait for app to be ready
+          timeout 60s bash -c "until curl -s localhost:8000/ > /dev/null; do sleep 2; done"
+
+      - name: Run ZAP Baseline Scan (Against Local App)
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          target: 'http://localhost:8000'
+          fail_action: true
+          allow_issue_writing: false

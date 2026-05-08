@@ -1,10 +1,9 @@
-
 import os
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from .database import Base, engine, get_db
-from . import models, schemas, crud
+from . import schemas, crud
 
 # Create tables
 Base.metadata.create_all(bind=engine)
@@ -22,6 +21,18 @@ if allow_origins:
         allow_headers=["*"],
     )
 
+# Security Headers Middleware
+@app.middleware("http")
+async def add_security_headers(request, call_next):
+    response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+    response.headers["Content-Security-Policy"] = "default-src 'self'"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    return response
+
 @app.get("/", tags=["health"])
 def health():
     return {"status": "ok"}
@@ -32,8 +43,8 @@ def create_task(payload: schemas.TaskCreate, db: Session = Depends(get_db)):
     return task
 
 @app.get("/tasks", response_model=list[schemas.TaskOut], tags=["tasks"])
-def list_tasks(q: str | None = None, completed: bool | None = None, db: Session = Depends(get_db)):
-    tasks = crud.list_tasks(db, q=q, completed=completed)
+def list_tasks(q: str | None = None, completed: bool | None = None, category: str | None = None, db: Session = Depends(get_db)):
+    tasks = crud.list_tasks(db, q=q, completed=completed, category=category)
     return tasks
 
 @app.get("/tasks/{task_id}", response_model=schemas.TaskOut, tags=["tasks"])
