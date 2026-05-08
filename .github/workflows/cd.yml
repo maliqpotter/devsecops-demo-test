@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      security-events: write
+      security-events: write # Diperlukan untuk upload SARIF Trivy
     steps:
       - uses: actions/checkout@v4
       
@@ -60,5 +60,5 @@ jobs:
         uses: zaproxy/action-baseline@v0.12.0
         with:
           target: 'http://localhost:8000'
-          fail_action: true # Set to true to enforce DAST results
+          fail_action: true
           allow_issue_writing: false
