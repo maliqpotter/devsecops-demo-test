@@ -31,7 +31,6 @@ jobs:
 
       - name: Run Trivy Image Scan (Local)
         uses: aquasecurity/trivy-action@0.24.0
-        continue-on-error: true
         with:
           image-ref: ${{ env.IMAGE_NAME }}:latest
           format: 'sarif'
@@ -59,8 +58,7 @@ jobs:
 
       - name: Run ZAP Baseline Scan (Against Local App)
         uses: zaproxy/action-baseline@v0.12.0
-        continue-on-error: true
         with:
           target: 'http://localhost:8000'
-          fail_action: false
+          fail_action: true # Set to true to enforce DAST results
           allow_issue_writing: false

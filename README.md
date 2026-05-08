@@ -1,48 +1,70 @@
 # TODO App (DevSecOps Demo)
 
-A sederhana TODO app dengan FastAPI, SQLAlchemy, dan SQLite. Proyek ini dikonfigurasi untuk demonstrasi **DevSecOps Pipeline** dengan skenario *Fail-Fast*.
+A sederhana TODO app dengan FastAPI, SQLAlchemy, dan SQLite. Proyek ini dikonfigurasi untuk demonstrasi **DevSecOps Pipeline** yang komprehensif.
 
 ## Struktur Proyek
-- `app/`: Source code FastAPI
+- `app/`: Source code FastAPI (Models, CRUD, Schemas)
 - `.github/workflows/`:
-  - `ci.yml`: Scan keamanan pada setiap Pull Request.
-  - `cd.yml`: Build, Scan Image, dan DAST (ZAP) pada push ke `main`.
+  - `ci.yml`: Scan keamanan otomatis pada setiap Pull Request.
+  - `cd.yml`: Build, Image Scan (Trivy), dan DAST (ZAP) pada push ke branch `main`.
 
 ---
 
-## Skenario Demo: Fail vs Success
+## Pengujian Lokal (DevSecOps di Local)
 
-### 1. Tahap ERROR (Skenario Gagal)
-Secara default, kode saat ini mengandung beberapa celah yang akan membuat pipeline **Gagal (Merah)**:
+Sebelum melakukan `push`, sangat disarankan untuk menjalankan pengujian berikut di mesin lokal:
 
-| Alat Scan | Penyebab Gagal | Lokasi |
-| :--- | :--- | :--- |
-| **Ruff** | Unused import `json` | `app/main.py` |
-| **Bandit** | Vulnerability `subprocess` dengan `shell=True` | `app/main.py` |
-| **Gitleaks** | Hardcoded AWS Secret Key | `app/main.py` |
-| **pip-audit** | Versi `requests` & `PyYAML` yang rentan | `requirements.txt` |
-| **Checkov** | Menjalankan container sebagai `root` | `Dockerfile` |
+### 1. Persiapan Environment
+```bash
+# Buat virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-### 2. Tahap SUCCESS (Cara Memperbaiki)
-Untuk membuat pipeline menjadi **Hijau (Berhasil)**, lakukan perubahan berikut:
+# Install dependensi aplikasi & tool pengujian
+pip install -r requirements.txt
+pip install ruff bandit pip-audit pytest pytest-cov
+```
 
-1.  **Fix Lint & Secrets**:
-    - Hapus `import json` di `app/main.py`.
-    - Hapus baris `SECRET_KEY = "AKIA..."` di `app/main.py`.
-2.  **Fix SAST**:
-    - Hapus endpoint `/debug/ping` atau ganti logika `subprocess` agar lebih aman.
-3.  **Fix SCA**:
-    - Hapus `requests==2.20.0` dari `requirements.txt` (atau update ke versi terbaru).
-4.  **Fix IaC**:
-    - Di `Dockerfile`, hapus baris `USER root` agar kembali menggunakan `USER appuser`.
+### 2. Jalankan Pemindaian Keamanan & Kualitas Kode
+Jalankan perintah berikut secara berurutan:
+
+*   **Linting (Ruff)**: Memastikan standar penulisan kode.
+    ```bash
+    ruff check .
+    ```
+*   **SAST (Bandit)**: Mencari celah keamanan pada kode source.
+    ```bash
+    bandit -r app
+    ```
+*   **SCA (pip-audit)**: Memeriksa kerentanan pada library pihak ketiga.
+    ```bash
+    pip-audit -r requirements.txt
+    ```
+*   **Unit Testing (pytest)**: Menjalankan test fungsional dan cakupan kode.
+    ```bash
+    PYTHONPATH=. pytest --cov=app
+    ```
+
+### 3. Pengujian Container (Docker)
+Jika Anda memiliki Docker terinstal, Anda bisa menguji image secara lokal:
+```bash
+# Build image
+docker build -t todo-app:local .
+
+# Jalankan container
+docker run -d -p 8000:8000 --name todo-test todo-app:local
+
+# (Opsional) Scan image menggunakan Trivy (jika terinstal)
+trivy image todo-app:local
+```
 
 ---
 
-## Cara Menjalankan Lokal
-1. Install deps: `pip install -r requirements.txt`
-2. Run app: `uvicorn app.main:app --reload`
-3. Test: `pytest`
+## Fitur DevSecOps Terpasang
+1.  **Non-root User**: Container berjalan sebagai user terbatas (keamanan runtime).
+2.  **Security Headers**: Dilengkapi dengan CSP, HSTS, X-Frame-Options, dll.
+3.  **Strict Pipeline**: Pipeline akan gagal jika ditemukan isu keamanan baru (proteksi otomatis).
+4.  **SBOM**: Menghasilkan daftar komponen (Software Bill of Materials) di setiap build.
 
-## Pipeline DevSecOps
-- **CI**: Mendeteksi masalah keamanan sebelum kode masuk ke branch utama.
-- **CD**: Memastikan artifact (Docker image) aman dan melakukan scan dinamis (DAST) pada aplikasi yang sedang berjalan secara lokal di runner.
+## Lisensi
+MIT
