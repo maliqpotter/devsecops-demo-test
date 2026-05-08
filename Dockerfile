@@ -6,7 +6,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PATH="/home/appuser/.local/bin:${PATH}"
 
 # Create a non-root user
-RUN groupadd -r appgroup && useradd -r -g appgroup -m appuser
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && groupadd -r appgroup && useradd -r -g appgroup -m appuser \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -28,5 +30,8 @@ RUN chown -R appuser:appgroup /app
 USER appuser
 
 # Expose & run
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8000/ || exit 1
+
 EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
