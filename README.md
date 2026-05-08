@@ -20,7 +20,7 @@ Secara default, kode saat ini mengandung beberapa celah yang akan membuat pipeli
 | **Ruff** | Unused import `json` | `app/main.py` |
 | **Bandit** | Vulnerability `subprocess` dengan `shell=True` | `app/main.py` |
 | **Gitleaks** | Hardcoded AWS Secret Key | `app/main.py` |
-| **pip-audit** | Versi `requests==2.20.0` yang rentan | `requirements.txt` |
+| **pip-audit** | Versi `requests` & `PyYAML` yang rentan | `requirements.txt` |
 | **Checkov** | Menjalankan container sebagai `root` | `Dockerfile` |
 
 ### 2. Tahap SUCCESS (Cara Memperbaiki)

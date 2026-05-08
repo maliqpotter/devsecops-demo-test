@@ -5,4 +5,7 @@ pydantic==2.9.2
 python-dotenv==1.0.1
 httpx==0.27.2
 pytest==8.3.3
-requests==2.20.0
+# SCA Demo: Versi ini masih memiliki celah keamanan (CVE-2024-3651)
+requests==2.31.0
+# SCA Demo: Versi ini memiliki celah RCE (CVE-2020-14343)
+PyYAML==5.3.1
