@@ -65,3 +65,14 @@ def delete_task(task_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Task not found")
     crud.delete_task(db, task)
     return None
+
+@app.post("/tasks/{task_id}/toggle", response_model=schemas.TaskOut, tags=["tasks"])
+def toggle_task(task_id: int, db: Session = Depends(get_db)):
+    task = crud.get_task(db, task_id)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    task.completed = not task.completed
+    db.add(task)
+    db.commit()
+    db.refresh(task)
+    return task
