@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from .database import Base, engine, get_db
 from . import schemas, crud
-import json # Unused import for Ruff
+#import json # Unused import for Ruff
 
 # Create tables
 Base.metadata.create_all(bind=engine)
