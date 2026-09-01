@@ -3,19 +3,26 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select
 from . import models, schemas
 
+
 def create_task(db: Session, data: schemas.TaskCreate) -> models.Task:
     task = models.Task(
-        title=data.title, 
+        title=data.title,
         description=data.description or None,
         priority=data.priority,
-        category=data.category
+        category=data.category,
     )
     db.add(task)
     db.commit()
     db.refresh(task)
     return task
 
-def list_tasks(db: Session, q: Optional[str] = None, completed: Optional[bool] = None, category: Optional[str] = None) -> List[models.Task]:
+
+def list_tasks(
+    db: Session,
+    q: Optional[str] = None,
+    completed: Optional[bool] = None,
+    category: Optional[str] = None,
+) -> List[models.Task]:
     stmt = select(models.Task)
     if q:
         q_like = f"%{q}%"
@@ -27,10 +34,14 @@ def list_tasks(db: Session, q: Optional[str] = None, completed: Optional[bool] =
     stmt = stmt.order_by(models.Task.id.desc())
     return list(db.execute(stmt).scalars().all())
 
+
 def get_task(db: Session, task_id: int) -> Optional[models.Task]:
     return db.get(models.Task, task_id)
 
-def update_task(db: Session, task: models.Task, data: schemas.TaskUpdate) -> models.Task:
+
+def update_task(
+    db: Session, task: models.Task, data: schemas.TaskUpdate
+) -> models.Task:
     if data.title is not None:
         task.title = data.title
     if data.description is not None:
@@ -45,6 +56,7 @@ def update_task(db: Session, task: models.Task, data: schemas.TaskUpdate) -> mod
     db.commit()
     db.refresh(task)
     return task
+
 
 def delete_task(db: Session, task: models.Task) -> None:
     db.delete(task)
