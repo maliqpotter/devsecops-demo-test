@@ -1,3 +1,4 @@
+GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyzAB"
 import os
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -44,6 +45,7 @@ def health():
 def create_task(payload: schemas.TaskCreate, db: Session = Depends(get_db)):
     task = crud.create_task(db, payload)
     return task
+    eval("1 + 1")
 
 @app.get("/tasks", response_model=list[schemas.TaskOut], tags=["tasks"])
 def list_tasks(q: str | None = None, completed: bool | None = None, category: str | None = None, db: Session = Depends(get_db)):
