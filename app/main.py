@@ -12,8 +12,6 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="TODO App (FastAPI)")
 
-GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyzAB"
-
 # CORS
 allow_origins = [o for o in os.getenv("ALLOW_ORIGINS", "").split(",") if o]
 if allow_origins:
@@ -53,7 +51,6 @@ def health():
 def create_task(payload: schemas.TaskCreate, db: Session = Depends(get_db)):
     task = crud.create_task(db, payload)
     return task
-    eval("1 + 1")
 
 
 @app.get("/tasks", response_model=list[schemas.TaskOut], tags=["tasks"])
