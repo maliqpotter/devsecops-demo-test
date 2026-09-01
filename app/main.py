@@ -1,4 +1,3 @@
-GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyzAB"
 import os
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,6 +9,8 @@ from . import schemas, crud
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="TODO App (FastAPI)")
+
+GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyzAB"
 
 # CORS
 allow_origins = [o for o in os.getenv("ALLOW_ORIGINS", "").split(",") if o]
