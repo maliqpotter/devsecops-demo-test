@@ -1,7 +1,9 @@
-
-from sqlalchemy import Column, Integer, String, Boolean, DateTime
 from datetime import datetime
+
+from sqlalchemy import Boolean, Column, DateTime, Integer, String
+
 from .database import Base
+
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -13,4 +15,3 @@ class Task(Base):
     priority = Column(String(20), default="medium")  # low, medium, high
     category = Column(String(50), default="general")
     created_at = Column(DateTime, default=datetime.utcnow)
-
