@@ -1,6 +1,7 @@
-from typing import List, Optional
-from sqlalchemy.orm import Session
+
 from sqlalchemy import select
+from sqlalchemy.orm import Session
+
 from . import models, schemas
 
 
@@ -19,10 +20,10 @@ def create_task(db: Session, data: schemas.TaskCreate) -> models.Task:
 
 def list_tasks(
     db: Session,
-    q: Optional[str] = None,
-    completed: Optional[bool] = None,
-    category: Optional[str] = None,
-) -> List[models.Task]:
+    q: str | None = None,
+    completed: bool | None = None,
+    category: str | None = None,
+) -> list[models.Task]:
     stmt = select(models.Task)
     if q:
         q_like = f"%{q}%"
@@ -35,7 +36,7 @@ def list_tasks(
     return list(db.execute(stmt).scalars().all())
 
 
-def get_task(db: Session, task_id: int) -> Optional[models.Task]:
+def get_task(db: Session, task_id: int) -> models.Task | None:
     return db.get(models.Task, task_id)
 
 

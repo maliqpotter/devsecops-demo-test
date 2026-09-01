@@ -1,9 +1,11 @@
 import os
-from fastapi import FastAPI, Depends, HTTPException
+
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+
+from . import crud, schemas
 from .database import Base, engine, get_db
-from . import schemas, crud
 
 # Create tables
 Base.metadata.create_all(bind=engine)
@@ -90,7 +92,6 @@ def delete_task(task_id: int, db: Session = Depends(get_db)):
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
     crud.delete_task(db, task)
-    return None
 
 
 @app.post("/tasks/{task_id}/toggle", response_model=schemas.TaskOut, tags=["tasks"])
